@@ -6,7 +6,7 @@ from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.http import *
 from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.template import RequecstContext
 #from birthdayreminder.models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
