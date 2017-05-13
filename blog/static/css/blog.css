@@ -38,6 +38,11 @@ h1, h2, h3, h4{
 	font-size: 26pt;
 	margin-right: 20px;
 }
+.login-master {
+	color: #F10201;
+	top: 10pt;
+	left: 10pt;
+}
 
 .post{
 	margin-bottom: 70px;
