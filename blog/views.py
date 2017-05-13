@@ -49,4 +49,10 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+@login_required
+def user_logout(request):
+	if request.user.is_authenticated():
+		logout(request)
+	return redirect('/')
 # Create your views here.
