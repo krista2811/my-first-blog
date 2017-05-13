@@ -4,7 +4,14 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.http import *
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+#from birthdayreminder.models import *
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
+@login_required
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -12,9 +19,19 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post':post})
-
-def login(request):
-    return render(request, 'blog/login.html', {})
+'''
+def loginUser(request):
+    logout(request)
+    username = pssword = ''
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect('/main/')
+    return render_to_response('blog/login.html', context=RequestContext(request))'''
 
 def post_new(request):
     if request.method == "POST":
