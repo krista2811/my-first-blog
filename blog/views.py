@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from django.shortcuts import redirect
 from django.http import *
 from django.shortcuts import render_to_response
@@ -55,4 +55,15 @@ def user_logout(request):
 	if request.user.is_authenticated():
 		logout(request)
 	return redirect('/')
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        comment = form.save(commit = False)
+        comment.post = post
+        comment.save()
+        return redirect('blog.views.post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment_to_post.html', {'form': form})
 # Create your views here.
