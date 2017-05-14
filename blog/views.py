@@ -82,6 +82,10 @@ def post_remove(request, pk):
     post.delete()
     return redirect('/', pk=post.pk)
 
+def post_remove_check(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_delete_check.html', {'post':post})
+
 @login_required
 def comment_edit(request, pk, fuck):
     comment = get_object_or_404(Comment, pk=fuck)
