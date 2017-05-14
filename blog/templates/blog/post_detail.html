@@ -2,6 +2,9 @@
 {% load staticfiles %}
 {%block content %}
 {% if user.is_authenticated %}
+	<a id="test" class="btntn" href="{% url 'post_remove?' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+	<a class="btntn" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></a>
+
 {% endif %}
 	<div class="post">
 		{% if post.published_date %}
@@ -21,8 +24,8 @@
     <div class="comment">
         <div class="date">
 	{{ comment.created_date }}
-	<button class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></button>
-	<button class="btn btn-default" style ="margin-left : 40px" href="{% url 'comment_edit' pk=post.pk fuck=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span></button>
+	<a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+	<a class="btn btn-default" href="{% url 'comment_edit' pk=post.pk fuck=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 	</div>
         <strong>{{ comment.author }}</strong>
         <p class="comments">{{ comment.text|linebreaks }}</p>
