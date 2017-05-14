@@ -82,9 +82,9 @@ def post_remove(request, pk):
     return redirect('/', pk=post.pk)
 
 @login_required
-def comment_edit(request, pk):
-    commentt = get_object_or_404(Post, fuck=fuck)
-    post = get_object_or_404(Post,fuck=fuck)
+def comment_edit(request, pk, fuck):
+    commentt = get_object_or_404(Post, pk=fuck)
+    post = get_object_or_404(Post,pk=pk)
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
