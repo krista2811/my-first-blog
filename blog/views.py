@@ -50,6 +50,7 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+
 @login_required
 def user_logout(request):
 	if request.user.is_authenticated():
