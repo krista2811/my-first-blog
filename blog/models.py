@@ -3,8 +3,8 @@ from django.utils import timezone
 
 class Post(models.Model):
         author = models.ForeignKey('auth.User')
-        title = models.CharField(max_length=200)
-        text = models.TextField()
+        name = models.CharField(max_length=200)
+        description = models.TextField()
         created_date = models.DateTimeField(
                 default=timezone.now)
         published_date = models.DateTimeField(
@@ -15,7 +15,7 @@ class Post(models.Model):
             self.save()
 
         def __str__(self):
-            return self.title
+            return self.name
 
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', related_name = 'comments')
