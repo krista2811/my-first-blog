@@ -19,7 +19,7 @@
         <div class="date">
 	{{ comment.created_date }}
 	<a class="btn btn-default" href="{%url 'comment_remove' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-	<a class="btn btn-default" href="{% url 'comment_edit' pk=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+	<a class="btn btn-default" href="/post/{{post.pk}}/comment/{{comment.pk}}/edit/"><span class="glyphicon glyphicon-pencil"></span></a>
 	</div>
         <strong>{{ comment.author }}</strong>
         <p>{{ comment.text|linebreaks }}</p>
