@@ -12,6 +12,10 @@
 		<p>{{ post.text|linebreaksbr }}</p>
 	</div>
 	<hr>
+<form id="FILE_FORM" method="post" enctype="multipart/form-data" action="">
+            <input type="file" id="FILE_TAG" name="FILE_TAG">
+            <a class="ui-shadow ui-btn ui-corner-all" href="javascript:uploadFile();">전송</a>
+        </form>
 <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
 {% for comment in post.comments.all %}
 {% if user.is_authenticated %}
