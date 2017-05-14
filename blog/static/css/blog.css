@@ -15,7 +15,17 @@ body {
 	font-size: 36pt;
 	text-decoration: none;
 }
-
+.study-name {
+	background-color: #F10000;
+	margin-top: 0;
+	padding: 20px 20px 20px 40px;
+}
+.study-name h1{
+	color: #ffffff;
+	font-size: 40pt;
+	text-decoration: none;
+	font-family: 'Lobster';
+}
 .content{
 	margin-left: 40px;
 }

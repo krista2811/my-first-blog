@@ -11,7 +11,9 @@
 			</div>
 		{% endif %}
 		<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">Edit</a>
-		<h1>{{ post.name }}</h1>
+		<div class="study-name">
+			<h1>{{ post.name }}</h1>
+		</div>
 		<p>{{ post.description|linebreaksbr }}</p>
 	</div>
 	<hr>
