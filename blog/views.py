@@ -10,6 +10,8 @@ from django.template import RequestContext
 #from birthdayreminder.models import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from .forms.image_example_form import ImageExampleForm
+from .utils.handle_upload_file import handle_uploaded_file
 
 @login_required
 def post_list(request):
@@ -100,5 +102,6 @@ def comment_remove(request, pk):
     post_pk = comment.post.pk
     comment.delete()
     return redirect('blog.views.post_detail', pk=post_pk)
+
 # Create your views here.
 
