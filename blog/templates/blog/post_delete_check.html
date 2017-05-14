@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<h1>Do you REALLY want to delete this study...?</h1>
+	<h2>really...?</h2>
+	<h3>really........?</h3>
+	<h4>토끼같은 스터디원들을 두고...?</h4>
+	<a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">YES(단호)</a>
+	<a class="btn btn-default" href="{% url 'post_detail' pk=post.pk %}">NO...(토끼같은 스터디원들을 보고 눈물이 앞을 가리며)</a>
+{% endblock %}
