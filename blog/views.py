@@ -83,18 +83,18 @@ def post_remove(request, pk):
 
 @login_required
 def comment_edit(request, pk, fuck):
-    commentt = get_object_or_404(Post, pk=fuck)
+    comment = get_object_or_404(Comment, pk=fuck)
     post = get_object_or_404(Post,pk=pk)
     if request.method == "POST":
-        form = CommentForm(request.POST)
+        form = CommentForm(request.POST, instance = comment)
         if form.is_valid():
-            commentt.delete()
+            #commentt.delete()
             comment = form.save(commit = False)
             comment.post = post
             comment.save()
             return redirect('blog.views.post_detail', pk=post.pk)
     else:
-        form = CommentForm()
+        form = CommentForm(instance = comment)
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 
 @login_required
