@@ -97,7 +97,6 @@ def comment_edit(request, pk):
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form})
 
-
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
@@ -105,3 +104,4 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('blog.views.post_detail', pk=post_pk)
 # Create your views here.
+
