@@ -52,6 +52,7 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
+
 @login_required
 def user_logout(request):
 	if request.user.is_authenticated():
@@ -82,6 +83,10 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('/', pk=post.pk)
+
+def post_remove_check(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_delete_check.html', {'post':post})
 
 @login_required
 def comment_edit(request, pk, fuck):

@@ -9,6 +9,8 @@ urlpatterns = [
 		url(r'^logout/$', views.user_logout, name='logout'),
 		url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
         url(r'^post/(?P<pk>[0-9]+)/comment/$', views.add_comment_to_post, name= 'add_comment_to_post'),
+        url(r'^post/(?P<pk>[0-9]+)/remove/check/$', views.post_remove_check, name='post_remove?'),
+        url(r'^post/(?P<pk>[0-9]+)/remove/$', views.post_remove, name='post_remove'),
         url(r'^post/(?P<pk>[0-9]+)/comment/(?P<fuck>[0-9]+)/edit/$', views.comment_edit, name='comment_edit'),
         url(r'^comment/(?P<pk>[0-9]+)/remove/$', views.comment_remove, name='comment_remove'),
 ]
