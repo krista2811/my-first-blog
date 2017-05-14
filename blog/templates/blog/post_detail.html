@@ -1,8 +1,7 @@
 {% extends 'blog/base.html' %}
-
+{% load staticfiles %}
 {%block content %}
 {% if user.is_authenticated %}
-	<button class="btn btn-default" href="{% url 'post_remove?' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></button>
 {% endif %}
 	<div class="post">
 		{% if post.published_date %}
@@ -10,12 +9,13 @@
 				{{post.published_date}}
 			</div>
 		{% endif %}
-		<button class="btn btn-default" style="margin-left : 50px" href="{% url 'post_edit' pk=post.pk %}">Edit</button>
-		<h1>{{ post.name }}</h1>
-		<p>{{ post.description|linebreaksbr }}</p>
+		<div class="study-name">
+			<h1>{{ post.name }}</h1>
+		</div>
+		<p class="descriptions">{{ post.description|linebreaksbr }}</p>
 	</div>
 	<hr>
-<a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add Post</a>
+<a class="bntnt" href="{% url 'add_comment_to_post' pk=post.pk %}"><span class="glyphicon glyphicon-plus"></a>
 {% for comment in post.comments.all %}
 {% if user.is_authenticated %}
     <div class="comment">
@@ -25,10 +25,10 @@
 	<button class="btn btn-default" style ="margin-left : 40px" href="{% url 'comment_edit' pk=post.pk fuck=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span></button>
 	</div>
         <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
+        <p class="comments">{{ comment.text|linebreaks }}</p>
     </div>
 {% endif %}
 {% empty %}
-    <p>ㅠㅠㅠㅠ아무도없어 ㅠㅠㅠㅠㅠ</p>
+    <p class="comments">ㅠㅠㅠㅠ글쓴놈이 아무도없어 ㅠㅠㅠㅠㅠ</p>
 {% endfor %}
 {% endblock %}
